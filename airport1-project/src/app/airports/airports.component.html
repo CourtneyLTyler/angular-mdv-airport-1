@@ -1,0 +1,15 @@
+<ul class="airports">
+  <li
+    *ngFor="let airport of airports"
+    (click)="onSelect(airport)"
+    [class.selected]="airport === selectedAirport"
+  >
+    <h2 class="airport-name">{{ airport.name || uppercase }}</h2>
+  </li>
+</ul>
+
+<div *ngIf="selectedAirport">
+  <h2>{{ selectedAirport.name | uppercase }} Details</h2>
+  <div><span>Address: </span>{{ selectedAirport.address }}</div>
+  <div><span>Website: </span>{{ selectedAirport.website }}</div>
+</div>
